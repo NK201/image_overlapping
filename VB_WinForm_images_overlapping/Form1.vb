@@ -116,6 +116,7 @@ Public Class Form1
         OpenFileDialog2.Multiselect = False
         OpenFileDialog2.ShowDialog()
 
+        MessageBox.Show("TEST")
         'Dim fileReader As String
         'fileReader = My.Computer.FileSystem.ReadAllText(OpenFileDialog2.FileName)
 
