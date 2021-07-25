@@ -31,14 +31,17 @@ Partial Class Form1
         Me.lblImageAmount = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.savePathLabel = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lblFile
         '
         Me.lblFile.AutoSize = True
-        Me.lblFile.Location = New System.Drawing.Point(348, 43)
+        Me.lblFile.Location = New System.Drawing.Point(261, 35)
+        Me.lblFile.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblFile.Name = "lblFile"
-        Me.lblFile.Size = New System.Drawing.Size(105, 17)
+        Me.lblFile.Size = New System.Drawing.Size(80, 13)
         Me.lblFile.TabIndex = 0
         Me.lblFile.Text = "No file selected"
         '
@@ -48,9 +51,10 @@ Partial Class Form1
         '
         'btnOpen
         '
-        Me.btnOpen.Location = New System.Drawing.Point(2, 43)
+        Me.btnOpen.Location = New System.Drawing.Point(2, 35)
+        Me.btnOpen.Margin = New System.Windows.Forms.Padding(2)
         Me.btnOpen.Name = "btnOpen"
-        Me.btnOpen.Size = New System.Drawing.Size(145, 47)
+        Me.btnOpen.Size = New System.Drawing.Size(109, 38)
         Me.btnOpen.TabIndex = 1
         Me.btnOpen.Text = "Open File and Config"
         Me.btnOpen.UseVisualStyleBackColor = True
@@ -59,43 +63,48 @@ Partial Class Form1
         '
         Me.FlowLayoutPanel1.AutoSize = True
         Me.FlowLayoutPanel1.BackColor = System.Drawing.SystemColors.Control
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(2, 99)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(2, 80)
+        Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(2)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1467, 450)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1100, 366)
         Me.FlowLayoutPanel1.TabIndex = 2
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(-1, 9)
+        Me.Label1.Location = New System.Drawing.Point(-1, 7)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(161, 17)
+        Me.Label1.Size = New System.Drawing.Size(121, 13)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Please select 10 images"
         '
         'lblSelectedImages
         '
         Me.lblSelectedImages.AutoSize = True
-        Me.lblSelectedImages.Location = New System.Drawing.Point(218, 9)
+        Me.lblSelectedImages.Location = New System.Drawing.Point(164, 7)
+        Me.lblSelectedImages.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblSelectedImages.Name = "lblSelectedImages"
-        Me.lblSelectedImages.Size = New System.Drawing.Size(116, 17)
+        Me.lblSelectedImages.Size = New System.Drawing.Size(89, 13)
         Me.lblSelectedImages.TabIndex = 4
         Me.lblSelectedImages.Text = "Selected Images:"
         '
         'lblImageAmount
         '
         Me.lblImageAmount.AutoSize = True
-        Me.lblImageAmount.Location = New System.Drawing.Point(337, 9)
+        Me.lblImageAmount.Location = New System.Drawing.Point(253, 7)
+        Me.lblImageAmount.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblImageAmount.Name = "lblImageAmount"
-        Me.lblImageAmount.Size = New System.Drawing.Size(16, 17)
+        Me.lblImageAmount.Size = New System.Drawing.Size(13, 13)
         Me.lblImageAmount.TabIndex = 5
         Me.lblImageAmount.Text = "0"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(171, 43)
+        Me.Button1.Location = New System.Drawing.Point(128, 35)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(151, 47)
+        Me.Button1.Size = New System.Drawing.Size(113, 38)
         Me.Button1.TabIndex = 6
         Me.Button1.Text = "Export"
         Me.Button1.UseVisualStyleBackColor = True
@@ -104,13 +113,22 @@ Partial Class Form1
         '
         Me.OpenFileDialog2.FileName = "OpenFileDialog2"
         '
+        'savePathLabel
+        '
+        Me.savePathLabel.AutoSize = True
+        Me.savePathLabel.Location = New System.Drawing.Point(266, 60)
+        Me.savePathLabel.Name = "savePathLabel"
+        Me.savePathLabel.Size = New System.Drawing.Size(0, 13)
+        Me.savePathLabel.TabIndex = 7
+        '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.AutoSize = True
-        Me.ClientSize = New System.Drawing.Size(1498, 561)
+        Me.ClientSize = New System.Drawing.Size(1028, 456)
+        Me.Controls.Add(Me.savePathLabel)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblImageAmount)
         Me.Controls.Add(Me.lblSelectedImages)
@@ -118,6 +136,7 @@ Partial Class Form1
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.btnOpen)
         Me.Controls.Add(Me.lblFile)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form1"
         Me.Text = "Image Overlapping stuff"
         Me.ResumeLayout(False)
@@ -134,4 +153,6 @@ Partial Class Form1
     Friend WithEvents lblImageAmount As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents OpenFileDialog2 As OpenFileDialog
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents savePathLabel As Label
 End Class

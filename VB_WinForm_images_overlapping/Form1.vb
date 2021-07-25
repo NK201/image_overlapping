@@ -7,12 +7,9 @@ Imports System.Drawing.Graphics
 
 Public Class Form1
 
-    'Global Variable
-
-    'Layer Anzahl = 20
-    ' Dim layerConf(20) As Double
 
 
+    Dim PATH As String = ""
 
     Private Sub btnOpen_Click(sender As Object, e As EventArgs) Handles btnOpen.Click
         OpenFileDialog1.Title = "Bitte 10 Bilder auswaehlen"
@@ -158,24 +155,32 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        SaveFileDialog1.Title = "Bitte pfad auswählen"
+        SaveFileDialog1.Filter = "JPeg Image|.jpg|Bitmap Image|.bmp"
+
+        If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
+            '  MessageBox.Show(SaveFileDialog1.FileName)
+            PATH = SaveFileDialog1.FileName
+            savePathLabel.Text = "Save path: " & PATH
+        End If
 
         Dim myBmp As New Bitmap(FlowLayoutPanel1.ClientRectangle.Width, FlowLayoutPanel1.ClientRectangle.Height)
 
         FlowLayoutPanel1.DrawToBitmap(myBmp, New Rectangle(0, 0, FlowLayoutPanel1.Width, FlowLayoutPanel1.Height))
 
-        Dim path As String = "C:\_test\ausgabe.jpg"
 
         Try
-            myBmp.Save(path)
+            myBmp.Save(PATH)
         Catch exception As Exception
-
-
-        Finally
-            MessageBox.Show("Saved to " & path & " :)")
+            MessageBox.Show("Fehler")
+            Return
 
         End Try
 
+        MessageBox.Show("Saved to " & PATH)
+
 
     End Sub
+
 
 End Class
