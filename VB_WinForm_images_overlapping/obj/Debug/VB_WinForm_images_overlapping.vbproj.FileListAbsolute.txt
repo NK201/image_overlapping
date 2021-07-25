@@ -10,3 +10,15 @@ C:\Users\karow\source\repos\VB_WinForm_images_overlapping\VB_WinForm_images_over
 C:\Users\karow\source\repos\VB_WinForm_images_overlapping\VB_WinForm_images_overlapping\obj\Debug\VB_WinForm_images_overlapping.exe
 C:\Users\karow\source\repos\VB_WinForm_images_overlapping\VB_WinForm_images_overlapping\obj\Debug\VB_WinForm_images_overlapping.xml
 C:\Users\karow\source\repos\VB_WinForm_images_overlapping\VB_WinForm_images_overlapping\obj\Debug\VB_WinForm_images_overlapping.pdb
+C:\Users\nikla\Documents\image_overlapping\VB_WinForm_images_overlapping\bin\Debug\VB_WinForm_images_overlapping.exe.config
+C:\Users\nikla\Documents\image_overlapping\VB_WinForm_images_overlapping\bin\Debug\VB_WinForm_images_overlapping.exe
+C:\Users\nikla\Documents\image_overlapping\VB_WinForm_images_overlapping\bin\Debug\VB_WinForm_images_overlapping.pdb
+C:\Users\nikla\Documents\image_overlapping\VB_WinForm_images_overlapping\bin\Debug\VB_WinForm_images_overlapping.xml
+C:\Users\nikla\Documents\image_overlapping\VB_WinForm_images_overlapping\obj\Debug\VB_WinForm_images_overlapping.vbproj.AssemblyReference.cache
+C:\Users\nikla\Documents\image_overlapping\VB_WinForm_images_overlapping\obj\Debug\VB_WinForm_images_overlapping.Form1.resources
+C:\Users\nikla\Documents\image_overlapping\VB_WinForm_images_overlapping\obj\Debug\VB_WinForm_images_overlapping.Resources.resources
+C:\Users\nikla\Documents\image_overlapping\VB_WinForm_images_overlapping\obj\Debug\VB_WinForm_images_overlapping.vbproj.GenerateResource.cache
+C:\Users\nikla\Documents\image_overlapping\VB_WinForm_images_overlapping\obj\Debug\VB_WinForm_images_overlapping.vbproj.CoreCompileInputs.cache
+C:\Users\nikla\Documents\image_overlapping\VB_WinForm_images_overlapping\obj\Debug\VB_WinForm_images_overlapping.exe
+C:\Users\nikla\Documents\image_overlapping\VB_WinForm_images_overlapping\obj\Debug\VB_WinForm_images_overlapping.xml
+C:\Users\nikla\Documents\image_overlapping\VB_WinForm_images_overlapping\obj\Debug\VB_WinForm_images_overlapping.pdb
