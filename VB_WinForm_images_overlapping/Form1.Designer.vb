@@ -31,7 +31,6 @@ Partial Class Form1
         Me.lblImageAmount = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnDraw = New System.Windows.Forms.Button()
-        Me.btnLoadConf = New System.Windows.Forms.Button()
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.SuspendLayout()
         '
@@ -40,7 +39,7 @@ Partial Class Form1
         Me.lblFile.AutoSize = True
         Me.lblFile.Location = New System.Drawing.Point(83, 53)
         Me.lblFile.Name = "lblFile"
-        Me.lblFile.Size = New System.Drawing.Size(101, 16)
+        Me.lblFile.Size = New System.Drawing.Size(105, 17)
         Me.lblFile.TabIndex = 0
         Me.lblFile.Text = "No file selected"
         '
@@ -60,6 +59,7 @@ Partial Class Form1
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.AutoSize = True
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.SystemColors.Control
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(2, 99)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1467, 450)
@@ -70,7 +70,7 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(-1, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(155, 16)
+        Me.Label1.Size = New System.Drawing.Size(161, 17)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Please select 10 images"
         '
@@ -79,7 +79,7 @@ Partial Class Form1
         Me.lblSelectedImages.AutoSize = True
         Me.lblSelectedImages.Location = New System.Drawing.Point(218, 9)
         Me.lblSelectedImages.Name = "lblSelectedImages"
-        Me.lblSelectedImages.Size = New System.Drawing.Size(113, 16)
+        Me.lblSelectedImages.Size = New System.Drawing.Size(116, 17)
         Me.lblSelectedImages.TabIndex = 4
         Me.lblSelectedImages.Text = "Selected Images:"
         '
@@ -88,7 +88,7 @@ Partial Class Form1
         Me.lblImageAmount.AutoSize = True
         Me.lblImageAmount.Location = New System.Drawing.Point(337, 9)
         Me.lblImageAmount.Name = "lblImageAmount"
-        Me.lblImageAmount.Size = New System.Drawing.Size(15, 16)
+        Me.lblImageAmount.Size = New System.Drawing.Size(16, 17)
         Me.lblImageAmount.TabIndex = 5
         Me.lblImageAmount.Text = "0"
         '
@@ -110,15 +110,6 @@ Partial Class Form1
         Me.btnDraw.Text = "Draw"
         Me.btnDraw.UseVisualStyleBackColor = True
         '
-        'btnLoadConf
-        '
-        Me.btnLoadConf.Location = New System.Drawing.Point(2, 75)
-        Me.btnLoadConf.Name = "btnLoadConf"
-        Me.btnLoadConf.Size = New System.Drawing.Size(108, 23)
-        Me.btnLoadConf.TabIndex = 8
-        Me.btnLoadConf.Text = "Load Conf"
-        Me.btnLoadConf.UseVisualStyleBackColor = True
-        '
         'OpenFileDialog2
         '
         Me.OpenFileDialog2.FileName = "OpenFileDialog2"
@@ -130,7 +121,6 @@ Partial Class Form1
         Me.AutoScroll = True
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(1498, 561)
-        Me.Controls.Add(Me.btnLoadConf)
         Me.Controls.Add(Me.btnDraw)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblImageAmount)
@@ -155,6 +145,5 @@ Partial Class Form1
     Friend WithEvents lblImageAmount As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents btnDraw As Button
-    Friend WithEvents btnLoadConf As Button
     Friend WithEvents OpenFileDialog2 As OpenFileDialog
 End Class

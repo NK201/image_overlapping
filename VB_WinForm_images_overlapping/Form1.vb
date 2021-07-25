@@ -1,13 +1,16 @@
 ﻿Imports System.IO
 Imports System.Security
 Imports System.Text.RegularExpressions
+Imports System.Drawing.Imaging
+Imports System.Drawing.Graphics
+
 
 Public Class Form1
 
     'Global Variable
 
     'Layer Anzahl = 20
-    Dim layerConf(20) As Double
+    ' Dim layerConf(20) As Double
 
 
 
@@ -15,6 +18,11 @@ Public Class Form1
         OpenFileDialog1.Title = "Bitte 10 Bilder auswaehlen"
         OpenFileDialog1.Multiselect = True
         OpenFileDialog1.ShowDialog()
+
+
+        OpenFileDialog2.Title = "Bitte Config file waehlen"
+        OpenFileDialog2.Multiselect = False
+        OpenFileDialog2.ShowDialog()
 
 
         If OpenFileDialog1.FileNames.Length = 10 Then
@@ -32,12 +40,33 @@ Public Class Form1
                     Dim pb As New PictureBox()
                     Dim loadedImage As Image = Image.FromFile(File)
 
-                    pb.Height = loadedImage.Height + 40
+                    pb.Height = loadedImage.Height + 50
                     pb.Width = loadedImage.Width
                     pb.Padding = New Padding(0, 50, 0, 0)
                     pb.Image = loadedImage
                     pb.Tag = File
                     pb.BackColor = Color.White
+
+                    Dim g As Graphics = g.FromImage(pb.Image)
+                    ' Dim g As Graphics = pb.CreateGraphics()
+
+
+                    Dim pen1 As New System.Drawing.Pen(Color.White, 1)
+
+                    g.DrawLine(pen1, 128, 0, 128, 1280)
+                    g.DrawLine(pen1, 0, 178, 2000, 178)
+                    g.DrawLine(pen1, 128 + 55, 0, 128 + 55, 1280)
+                    g.DrawLine(pen1, 0, 178 + 55, 2000, 178 + 55)
+                    g.DrawLine(pen1, 128 + 110, 0, 128 + 110, 1280)
+                    g.DrawLine(pen1, 0, 178 + 110, 2000, 178 + 110)
+                    g.DrawLine(pen1, 128 - 55, 0, 128 - 55, 1280)
+                    g.DrawLine(pen1, 0, 178 - 55, 2000, 178 - 55)
+                    g.DrawLine(pen1, 128 - 110, 0, 128 - 110, 1280)
+                    g.DrawLine(pen1, 0, 178 - 110, 2000, 178 - 110)
+                    g.DrawLine(pen1, 128 - 165, 0, 128 - 165, 1280)
+                    g.DrawLine(pen1, 0, 178 - 165, 2000, 178 - 165)
+
+
 
                     FlowLayoutPanel1.Controls.Add(pb)
                     FlowLayoutPanel1.Invalidate()
@@ -65,6 +94,8 @@ Public Class Form1
             End While
             lblFile.Text = "No file selected"
         End If
+
+        FlowLayoutPanel1.BackColor = Color.White
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -108,42 +139,5 @@ Public Class Form1
 
 
         Next
-    End Sub
-
-    Private Sub btnLoadConf_Click(sender As Object, e As EventArgs) Handles btnLoadConf.Click
-
-        OpenFileDialog2.Title = "Bitte Config file waehlen"
-        OpenFileDialog2.Multiselect = False
-        OpenFileDialog2.ShowDialog()
-
-        MessageBox.Show("TEST")
-        'Dim fileReader As String
-        'fileReader = My.Computer.FileSystem.ReadAllText(OpenFileDialog2.FileName)
-
-        'MessageBox.Show(fileReader)
-
-
-        'Dim reader As StreamReader = My.Computer.FileSystem.OpenTextFileReader(OpenFileDialog2.FileName)
-        'Dim line As String
-
-        'Dim counter As Integer = 0
-        'Do
-        '    line = reader.ReadLine()
-        '    Dim result As String() = Regex.Split(line, "\t")
-
-        '    If result(0).GetType() = () Then
-
-        '        If result(0) = (counter + 1) Then
-        '            layerConf(counter) = result(1)
-        '        End If
-
-        '    End If
-
-
-        'Loop Until line Is Nothing
-
-
-        'MessageBox.Show(layerConf.ToString())
-
     End Sub
 End Class
