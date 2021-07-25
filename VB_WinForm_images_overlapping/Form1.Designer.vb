@@ -30,14 +30,13 @@ Partial Class Form1
         Me.lblSelectedImages = New System.Windows.Forms.Label()
         Me.lblImageAmount = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnDraw = New System.Windows.Forms.Button()
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.SuspendLayout()
         '
         'lblFile
         '
         Me.lblFile.AutoSize = True
-        Me.lblFile.Location = New System.Drawing.Point(83, 53)
+        Me.lblFile.Location = New System.Drawing.Point(348, 43)
         Me.lblFile.Name = "lblFile"
         Me.lblFile.Size = New System.Drawing.Size(105, 17)
         Me.lblFile.TabIndex = 0
@@ -49,11 +48,11 @@ Partial Class Form1
         '
         'btnOpen
         '
-        Me.btnOpen.Location = New System.Drawing.Point(2, 46)
+        Me.btnOpen.Location = New System.Drawing.Point(2, 43)
         Me.btnOpen.Name = "btnOpen"
-        Me.btnOpen.Size = New System.Drawing.Size(75, 23)
+        Me.btnOpen.Size = New System.Drawing.Size(145, 47)
         Me.btnOpen.TabIndex = 1
-        Me.btnOpen.Text = "Open"
+        Me.btnOpen.Text = "Open File and Config"
         Me.btnOpen.UseVisualStyleBackColor = True
         '
         'FlowLayoutPanel1
@@ -94,21 +93,12 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(277, 75)
+        Me.Button1.Location = New System.Drawing.Point(171, 43)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.Size = New System.Drawing.Size(151, 47)
         Me.Button1.TabIndex = 6
         Me.Button1.Text = "Export"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'btnDraw
-        '
-        Me.btnDraw.Location = New System.Drawing.Point(135, 75)
-        Me.btnDraw.Name = "btnDraw"
-        Me.btnDraw.Size = New System.Drawing.Size(75, 23)
-        Me.btnDraw.TabIndex = 7
-        Me.btnDraw.Text = "Draw"
-        Me.btnDraw.UseVisualStyleBackColor = True
         '
         'OpenFileDialog2
         '
@@ -121,7 +111,6 @@ Partial Class Form1
         Me.AutoScroll = True
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(1498, 561)
-        Me.Controls.Add(Me.btnDraw)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblImageAmount)
         Me.Controls.Add(Me.lblSelectedImages)
@@ -144,6 +133,5 @@ Partial Class Form1
     Friend WithEvents lblSelectedImages As Label
     Friend WithEvents lblImageAmount As Label
     Friend WithEvents Button1 As Button
-    Friend WithEvents btnDraw As Button
     Friend WithEvents OpenFileDialog2 As OpenFileDialog
 End Class

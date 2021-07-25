@@ -37,15 +37,32 @@ Public Class Form1
 
             For Each File In OpenFileDialog1.FileNames
                 Try
+
+                    Dim fl As New FlowLayoutPanel()
+
+                    Dim label As New Label()
                     Dim pb As New PictureBox()
+
                     Dim loadedImage As Image = Image.FromFile(File)
 
-                    pb.Height = loadedImage.Height + 50
+                    fl.Height = loadedImage.Height + 50
+                    fl.Width = loadedImage.Width
+                    fl.Tag = File
+                    fl.BackColor = Color.White
+
+                    label.Height = 50
+                    label.Width = loadedImage.Width
+                    label.TextAlign = 32
+                    label.Font = New Font("Times New Roman", 18)
+
+                    pb.Height = loadedImage.Height
                     pb.Width = loadedImage.Width
-                    pb.Padding = New Padding(0, 50, 0, 0)
+                    pb.Padding = New Padding(0, 0, 0, 0)
                     pb.Image = loadedImage
                     pb.Tag = File
                     pb.BackColor = Color.White
+
+
 
                     Dim g As Graphics = g.FromImage(pb.Image)
                     ' Dim g As Graphics = pb.CreateGraphics()
@@ -53,27 +70,69 @@ Public Class Form1
 
                     Dim pen1 As New System.Drawing.Pen(Color.White, 1)
 
-                    g.DrawLine(pen1, 128, 0, 128, 1280)
-                    g.DrawLine(pen1, 0, 178, 2000, 178)
-                    g.DrawLine(pen1, 128 + 55, 0, 128 + 55, 1280)
-                    g.DrawLine(pen1, 0, 178 + 55, 2000, 178 + 55)
-                    g.DrawLine(pen1, 128 + 110, 0, 128 + 110, 1280)
-                    g.DrawLine(pen1, 0, 178 + 110, 2000, 178 + 110)
-                    g.DrawLine(pen1, 128 - 55, 0, 128 - 55, 1280)
-                    g.DrawLine(pen1, 0, 178 - 55, 2000, 178 - 55)
-                    g.DrawLine(pen1, 128 - 110, 0, 128 - 110, 1280)
-                    g.DrawLine(pen1, 0, 178 - 110, 2000, 178 - 110)
-                    g.DrawLine(pen1, 128 - 165, 0, 128 - 165, 1280)
-                    g.DrawLine(pen1, 0, 178 - 165, 2000, 178 - 165)
+                    g.DrawLine(pen1, 127, 0, 127, 1280)
+                    g.DrawLine(pen1, 0, 127, 2000, 127)
+                    g.DrawLine(pen1, 127 + 55, 0, 127 + 55, 1280)
+                    g.DrawLine(pen1, 0, 127 + 55, 2000, 127 + 55)
+                    g.DrawLine(pen1, 127 + 110, 0, 127 + 110, 1280)
+                    g.DrawLine(pen1, 0, 127 + 110, 2000, 127 + 110)
+                    g.DrawLine(pen1, 127 - 55, 0, 127 - 55, 1280)
+                    g.DrawLine(pen1, 0, 127 - 55, 2000, 127 - 55)
+                    g.DrawLine(pen1, 127 - 110, 0, 127 - 110, 1280)
+                    g.DrawLine(pen1, 0, 127 - 110, 2000, 127 - 110)
+                    g.DrawLine(pen1, 127 - 165, 0, 127 - 165, 1280)
+                    g.DrawLine(pen1, 0, 127 - 165, 2000, 127 - 165)
+
+                    Dim layerName As String
+                    Dim s As String = 0
+                    layerName = ""
+                    Dim myChars() As Char = pb.Tag.ToCharArray() 'Gesamtdateipfad!!!! darf keine anderen zahlen enthalten
+                    For Each ch As Char In myChars
+                        '  layerName = ""
+                        If Char.IsDigit(ch) Then
+                            If s = 0 Then
+                                layerName = ch
+                                s = +1
+                            Else layerName += ch
+                            End If
 
 
+                        End If
+                    Next
 
-                    FlowLayoutPanel1.Controls.Add(pb)
+
+                    Dim z As String = 0
+                    Dim linie As String = 0
+                    Dim zeile As String = 0
+                    Dim Layerzeile As String = 1000
+                    Dim layerlines() = IO.File.ReadAllLines(OpenFileDialog2.FileName)
+
+
+                    For Each line In layerlines
+                        zeile += 1
+
+                        If line.Contains("Layer #") Then
+                            Layerzeile = zeile + +layerName + 1 ' plus 1 da Bildernamen bei 0 beginnen
+                        End If
+                        If zeile = Layerzeile Then
+                            Dim distanceArray() As String = line.Split(Chr(9))
+                            z = distanceArray(1)
+                        Else
+                        End If
+                    Next
+                    layerName = layerName + +1
+
+                    label.Text = "L" & layerName & "  " & z & "mm"
+
+                    fl.Controls.Add(label)
+                    fl.Controls.Add(pb)
+
+                    FlowLayoutPanel1.Controls.Add(fl)
                     FlowLayoutPanel1.Invalidate()
                     FlowLayoutPanel1.Update()
 
                     If i.Equals(4) Then
-                        FlowLayoutPanel1.SetFlowBreak(pb, True)
+                        FlowLayoutPanel1.SetFlowBreak(fl, True)
                     End If
                     i += 1
                 Catch SecEx As SecurityException
@@ -99,45 +158,24 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'MessageBox.Show("Not implemented yet")
+
         Dim myBmp As New Bitmap(FlowLayoutPanel1.ClientRectangle.Width, FlowLayoutPanel1.ClientRectangle.Height)
 
         FlowLayoutPanel1.DrawToBitmap(myBmp, New Rectangle(0, 0, FlowLayoutPanel1.Width, FlowLayoutPanel1.Height))
-        'FlowLayoutPanel1.Dispose()
 
-        myBmp.Save("C:\_test\ausgabe.jpg")
+        Dim path As String = "C:\_test\ausgabe.jpg"
+
+        Try
+            myBmp.Save(path)
+        Catch exception As Exception
+
+
+        Finally
+            MessageBox.Show("Saved to " & path & " :)")
+
+        End Try
+
 
     End Sub
 
-    Private Sub btnDraw_Click(sender As Object, e As EventArgs) Handles btnDraw.Click
-        For Each pb As PictureBox In FlowLayoutPanel1.Controls
-            Dim g As Graphics = pb.CreateGraphics()
-
-            ' Create font and brush.
-            Dim drawFont As New Font("Times New Roman", 18)
-            Dim drawBrush As New SolidBrush(Color.Black)
-
-            ' Set format of string.
-            Dim drawFormat As New StringFormat
-            drawFormat.FormatFlags = StringFormatFlags.NoWrap
-
-            'get Layer Name
-            Dim layerName As String
-            layerName = ""
-            Dim myChars() As Char = pb.Tag.ToCharArray()
-            For Each ch As Char In myChars
-                If Char.IsDigit(ch) Then
-                    layerName += ch
-                End If
-            Next
-
-            ' Draw string to screen.
-            g.DrawString("L" & layerName & " [X.Xmm]", drawFont, drawBrush, New PointF(10, 10), drawFormat)
-
-            'Todo:
-            '   - draw the net
-
-
-        Next
-    End Sub
 End Class
